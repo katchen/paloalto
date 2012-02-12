@@ -129,7 +129,7 @@
 				<p>High priority to fix in the next two years.</p>
 			</td>
 			<td>
-				<img src="images/quality_bad.jpeg">
+				<img src="images/quality_bad.png">
 			</td>
 		</tr>
 		<tr>
@@ -138,7 +138,7 @@
 				<p>Medium priority, will be fixed within 3-5 years.</p>
 			</td>
 			<td>
-				<img src="images/quality_medium.jpeg">
+				<img src="images/quality_medium.png">
 			</td>
 		</tr>
 		<tr>
@@ -147,7 +147,7 @@
 				<p>Satisfactory to good condition</p>
 			</td>
 			<td>
-				<img src="images/quality_good.jpeg">
+				<img src="images/quality_good.png">
 			</td>
 		</tr>
     </div>
