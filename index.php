@@ -10,8 +10,6 @@
     'src="http://maps.googleapis.com/maps/api/js?key='.$key.'&sensor='.
     $sensor.'"> </script>';
   ?>
-  
-  
   <link rel="stylesheet" type="text/css" href="http://static.flowplayer.org/tools/css/overlay-apple.css"/>
   <style>
   /* use a semi-transparent image for the overlay */
@@ -41,20 +39,14 @@
       center: latlng,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     }
-    map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
   }
 
   function codeAddress() {
     var address = document.getElementById("address").value;
     geocoder.geocode( { 'address': address}, function(results, status) {
       if (status == google.maps.GeocoderStatus.OK) {
-        /*map.setCenter(results[0].geometry.location);
-        var marker = new google.maps.Marker({
-            map: map,
-            position: results[0].geometry.location
-        });*/
         url = "http://maps.googleapis.com/maps/api/streetview?size=600x300&location=" + JSON.stringify(results[0].geometry.location.Pa)+","+
-        JSON.stringify(results[0].geometry.location.Qa)+ "&sensor=false";
+        JSON.stringify(results[0].geometry.location.Qa)+ "&sensor=false&pitch=-45&fov=120";
         $("#map").replaceWith('<img src=' + url + " />");
       } else {
         alert("Geocode was not successful for the following reason: " + status);
@@ -66,30 +58,41 @@
 
 <body onload="initialize()">
 
-    <!-- external page is given in the href attribute (as it should be) -->
-  <a href="about.php" rel="#overlay" style="text-decoration:none"> About </a>
-  <a href="admin.php" rel="#overlay" style="text-decoration:none"> Admin </a>
-  <a href="feedback.php" rel="#overlay" style="text-decoration:none"> Feedback </a>
 
-  <div id="map">
-  </div> 
-  <form id="form" action = "">
+  <!-- external page is given in the href attribute (as it should be) -->
+  <div id="navbar">
+  <ul>
+  <li> <a href="about.php" rel="#overlay" style="text-decoration:none"> About </a> </li>
+  <li> <a href="admin.php" rel="#overlay" style="text-decoration:none"> Admin </a> </li>
+  <li> <a href="feedback.php" rel="#overlay" style="text-decoration:none"> Feedback </a> </li>
+  </ul>
+  </div>
+  
+  <div id="search">
+  <form id="form" action = "index.php">
     Enter an address: <input id="address" type="text" name="address" /><br />
     <input id="submit" type="button" value="Locate" onclick="codeAddress()"/>
   </form> 
-  <div id="map_canvas" style="width:100%; height:100%"></div>
+  </div>
 
-</body>
-<div class="simple_overlay" id="overlay">
+  <div class="columns" id="report">
+  </div>
+  
+  <div class="columns" id="map">
+  </div>
+  
+  <div class="columns" id="scale">
+  </div>
+  
+  <div class="simple_overlay" id="overlay">
 
   <!-- the external content is loaded inside this tag -->
   <div class="contentWrap"></div>
 
-</div>
+  </div>
 
 <!-- make all links with the 'rel' attribute open overlays -->
 <script>
-
 
 $(function() {
   // if the function argument is given to overlay,
@@ -108,5 +111,7 @@ $(function() {
     });
 });
 </script>
+
+</body>
 
 </html>
