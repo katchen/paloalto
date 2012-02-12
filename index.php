@@ -57,6 +57,8 @@
       }
     });
   }
+  
+
   </script>
 </head>
 
@@ -173,6 +175,12 @@ $(function() {
 
     });
 });
+
+$("#address").keydown(function(event){
+    if(event.which == 13){
+        codeAddress();
+    }
+  });
 </script>
 <div class="apple_overlay" id="overlay">
 
