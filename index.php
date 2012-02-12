@@ -161,9 +161,10 @@
 	  <div id="upload">
 	    <form action="upload.php"id="photo_upload" method="post" enctype="multipart/form-data" >
 	    <p>Submit a photo for this location</p>
-	    <input id="uploader" type="file" name="file"/>
-	    <textarea id="comment" placeholder="Caption(optional)" rows="2"/>
-	    <input type="image" src="images/button_submit.png"/>
+	    <input id="uploader" type="file" name="file"/><br />
+	    <textarea id="comment" placeholder="Caption(optional)" rows="2">
+		</textarea>
+	    <input type="submit"/>
 	    </form>
 	  </div>
 	  </div>
