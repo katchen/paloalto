@@ -59,7 +59,6 @@
     <input placeholder="Enter your address here" id="address" type="text" name="address"/>
     <input id="submit" type="image" onclick="codeAddress()" src="images/button_locate.png"/>
   </div>
-
   <div id="centerpiece">
   <div class="columns" id="report">
     <div id="report_header">
