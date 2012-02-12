@@ -53,7 +53,12 @@
         JSON.stringify(results[0].geometry.location.Qa)+ "&sensor=false&pitch=-45&fov=120";
         $("#map").replaceWith('<img class="columns" id="map" src=' + url + " />");
         var address = JSON.stringify(results[0].formatted_address);
-        $("#streetaddr").replaceWith('<div id="streetaddr"><strong>'+ address.substring(0,address.indexOf(','))+'</strong></br>'+address.substring(address.indexOf(','))+'</div>');
+        var secondpartofaddress = JSON.stringify(results[0].address_components[3].short_name)+', '+JSON.stringify(results[0].address_components[5].short_name);
+        var i = 0;
+        for (;i<4;i++){
+          secondpartofaddress = secondpartofaddress.replace('"','');
+        }
+        $("#streetaddr").replaceWith('<div id="streetaddr"><strong>'+ address.substring(1,address.indexOf(','))+'</strong></br>'+ secondpartofaddress+'</div>');
       } else {
         alert("Geocode was not successful for the following reason: " + status);
       }
