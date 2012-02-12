@@ -36,7 +36,7 @@
   var geocoder;
   var url;
 
-  function initialize() {
+  function initialize() {	
     geocoder = new google.maps.Geocoder();
     var latlng = new google.maps.LatLng(37.44345,-122.164106);
     var myOptions = {
@@ -45,6 +45,8 @@
       mapTypeId: google.maps.MapTypeId.ROADMAP
     }
   }
+
+	
 
   function codeAddress() {
     var address = document.getElementById("address").value;
@@ -87,10 +89,14 @@
   </div>
   </div>
   
+  <div id="tagline">How safe are the&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />roads in your neighborhood?</div>
+
   <div id="form">
     <input placeholder="Enter your address here (e.g. 545 Forest Ave, Palo Alto, CA)" id="address" type="text" name="address"/>
     <input id="submit" type="image" onclick="codeAddress()" src="images/button_locate.png"/>
   </div>
+
+
   <div id="centerpiece">
 	<div id="topcenter">
 		
@@ -198,9 +204,17 @@ $(function() {
 
     });
 });
+var first = true;
 
 $("#address").keydown(function(event){
     if(event.which == 13){
+	    if(first){
+			document.getElementById("centerpiece").style.visibility = "visible";
+			$('#tagline').hide();
+			first = false;
+
+		}
+	
         codeAddress();
     }
   });

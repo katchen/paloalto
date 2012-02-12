@@ -29,6 +29,14 @@
 }
 
 
+#tagline{
+	font-size:40px;
+	font-weight:bold;
+	text-align:center;
+	margin-top:200px;
+	margin-bottom:20px;
+}
+
 #address:focus{
   color:#000;
   outline:none;
@@ -40,7 +48,7 @@
 }
 
 #address{
-  width:40%;
+  width:45%;
   height:30px;
   border-color:#cccccc;
   font-size:9pt;
@@ -88,6 +96,7 @@
 }
 
 #centerpiece{
+  visibility:hidden;
   width:1000px;
   margin:auto;
   margin-top:20px;
@@ -172,7 +181,7 @@
   float:left;
   margin-bottom:100px;
   margin-top:-60px;
-  height:260px;
+  height:280px;
 }
 
 #album{
@@ -202,7 +211,8 @@
 }
 
 #submit{
-  vertical-align:-10px;
+  vertical-align:-11px;
+  margin-left:10px;
   
 }
 
