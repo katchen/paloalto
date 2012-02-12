@@ -53,11 +53,8 @@
             map: map,
             position: results[0].geometry.location
         });*/
-        location = results[0].geometry.location;
-        url = "http://maps.googleapis.com/maps/api/streetview?size=600x300&location=" + String(results[0].geometry.location) + "&sensor=false";
-        url.replace("(", "");
-        url.replace(")", "");
-        alert(url);
+        url = "http://maps.googleapis.com/maps/api/streetview?size=600x300&location=" + JSON.stringify(results[0].geometry.location.Pa)+","+
+        JSON.stringify(results[0].geometry.location.Qa)+ "&sensor=false";
         $("#map").replaceWith('<img src=' + url + " />");
       } else {
         alert("Geocode was not successful for the following reason: " + status);
