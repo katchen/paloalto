@@ -53,7 +53,7 @@
 	
 
   function codeAddress() {
-    var address = document.getElementById("address").value;
+    var address = document.getElementById("address").value + " Palo Alto CA";
     geocoder.geocode( { 'address': address}, function(results, status) {
       if (status == google.maps.GeocoderStatus.OK) {
         var num;
@@ -129,7 +129,7 @@
             <div id="score">
             <?php
                 if ($_GET['num'] == null){
-                    echo "71";
+                    echo "40";
                 }
                 else{
                   $street = $_GET['street'];
@@ -163,7 +163,27 @@
           ?>
           </div>
       </div> 
-      <div id="content"> Stormy weather knocked down trees causing major obstruction on the pavement. Roads have moderate cracking.
+      <div id="content">
+        <?php
+            $final_street = $final_street."%'";
+            if ($_GET['lat'] != null){
+              $query = "select * from TC_PVMT where Street like '".$final_street.";";
+              $result = $db->query($query);
+              $results = $result->fetch();
+              if ($results == null)
+                echo "No Information Available.";
+              else{
+                echo "Year Constructed: ".$results["YearConstructed"]."<br/>";
+                echo "Years of no work: ".$results["Years%20of%20no%20work"]."<br/>";
+                echo "Traffic Class: ".$results["TrafficClass"]."<br/>";
+                echo "Surface Type: ".$results["SurfaceType"]."<br/>";
+                echo "Alligator Severity: ".$results["AlligatorSeverity"]."<br/>";
+                echo "Block Severity: ".$results["BlockSeverity"]."<br/>";
+                echo "Ridability Severity: ".$results["RidabilitySeverity"]."<br/>";
+                echo "Trench Severity: ".$results["TrenchSeverity"]."<br/>";
+              }
+            }
+        ?>
       </div>
     </div>
  
