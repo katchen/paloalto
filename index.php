@@ -62,13 +62,14 @@
         + "&sensor=false&pitch=-45&fov=120";
         $("#map").replaceWith('<img class="columns" id="map" src=' + url + " />");
         var address = JSON.stringify(results[0].formatted_address);
+        var firstpartofaddress= address.substring(1,address.indexOf(','));
         var secondpartofaddress = JSON.stringify(results[0].address_components[3].short_name)+', '+JSON.stringify(results[0].address_components[5].short_name);
         var i = 0;
         for (;i<4;i++){
           secondpartofaddress = secondpartofaddress.replace('"','');
         }
-        $("#streetaddr").replaceWith('<div id="streetaddr"><strong>'+ address.substring(1,address.indexOf(','))+'</strong></br>'+ secondpartofaddress+'</div>');
-        window.location.href = "index.php?num=" + num + "&street=" + street;
+        $("#streetaddr").replaceWith('<div id="streetaddr"><strong>'+'</strong></br>'+ secondpartofaddress+'</div>');
+        window.location.href = "index.php?num=" + num + "&street=" + street+"&long=" + long +"&lat=" + lat +"&firstpart=" + firstpartofaddress+ "&secondpart="+ secondpartofaddress;
       } else {
         alert("Geocode was not successful for the following reason: " + status);
       }
@@ -120,14 +121,28 @@
                   $query ="select Score from PCI where LOCATION like '".str_replace('"',"",$_GET['num'])." ".str_replace('"',"",$final_street)."%';";
                   $result = $db->query($query);
                   $score = $result->fetch();
-                  echo $score[0];
+                  if ($score == null)
+                    echo "N/A";
+                  else
+                    echo $score[0];
                 }
             ?>
             </div>
             ROAD SCORE
           </div>
-          <div id="streetaddr"><strong>250 Hamilton Avenue</strong></br>
-          Palo Alto, CA 94305
+          <div id="streetaddr"><strong><?php
+          if ($_GET['firstpart']==null)
+            echo "250 Hamilton Avenue";
+          else
+            echo $_GET['firstpart'];
+          ?>
+          </strong></br>
+          <?php
+          if ($_GET['secondpart'] == null)
+            echo "Palo Alto, CA 94305";
+          else
+            echo $_GET['secondpart'];
+          ?>
           </div>
       </div> 
       <div id="content"> Stormy weather knocked down trees causing major obstruction on the pavement. Roads have moderate cracking.
@@ -135,7 +150,14 @@
     </div>
  
     <div class="columns" id="map">
-      <img src="http://maps.googleapis.com/maps/api/streetview?size=650x320&location=37.444572,-122.16030599999999&sensor=false&pitch=-45&fov=120"/>
+      <?php
+        if ($_GET['lat'] == null){
+          echo '<img src="http://maps.googleapis.com/maps/api/streetview?size=650x320&location=37.444572,-122.16030599999999&sensor=false&pitch=-45&fov=120"/>';
+        }
+        else{
+          echo '<img src="http://maps.googleapis.com/maps/api/streetview?size=650x320&location='.$_GET['long'].','.$_GET['lat'].'&sensor=false&pitch=-45&fov=120"/>';
+        }
+      ?>
     </div>
   </div>
   <div id="bottomcenter">
