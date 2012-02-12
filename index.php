@@ -12,7 +12,25 @@
   ?>
   <link rel="stylesheet" type="text/css" href="http://static.flowplayer.org/tools/css/overlay-apple.css"/>
   <link rel="stylesheet" type="text/css" href="style.css"/>
-  <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css' />
+  <style>
+  
+  /* use a semi-transparent image for the overlay */
+  #overlay {
+          background-image:url(http://static.flowplayer.org/img/overlay/transparent.png);
+          color:#efefef;
+          height:600px;
+          width:600px;
+          padding:50px;
+  }
+  
+  /* container for external content. uses vertical scrollbar, if needed */
+  div.contentWrap {
+          height:441px;
+            
+          overflow-y:auto;
+  }
+  </style>
   <script>
   var geocoder;
   var url;
@@ -118,7 +136,12 @@ $(function() {
     });
 });
 </script>
+<div class="apple_overlay" id="overlay">
 
+	<!-- the external content is loaded inside this tag -->
+	<div class="contentWrap"></div>
+
+</div>
 </body>
 
 </html>
