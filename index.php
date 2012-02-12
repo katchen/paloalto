@@ -159,19 +159,16 @@
 		
 	  </div>
 	  <div id="upload">
-	    <form id="photo_upload" action="" >
+	    <form action="upload.php"id="photo_upload" method="post" enctype="multipart/form-data" >
 	    <p>Submit a photo for this location</p>
-	    <input id="uploader" type="file"/><br />
-	    <input id="comment" placeholder="Caption(optional)" type="textarea"/>
-	
-	    <input type="submit" value="Submit" class="uploadImages"/>
+	    <input id="uploader" type="file" name="file"/>
+	    <textarea id="comment" placeholder="Caption(optional)" rows="2"/>
+	    <input type="image" src="images/button_submit.png"/>
 	    </form>
 	  </div>
 	  </div>
 	</div>
   </div>
-  
-
 
   <div class="simple_overlay" id="overlay">
 
