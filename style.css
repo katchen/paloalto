@@ -17,6 +17,14 @@ div.contentWrap {
   font-size:40pt;
 }
 
+#logodiv{
+  float:left;
+}
+
+#logodiv img {
+  padding-top:10px;
+  height:30px;
+}
 #navbarlinks{
   list-style-type:none;
   margin:0;
@@ -29,7 +37,7 @@ div.contentWrap {
 #navbar{
   padding-bottom:10px;
   border-bottom:thin dotted #b3b3b3;
-  margin-bottom:45px;
+  margin-bottom:35px;
   margin-left:20px;
   margin-right:20px;
 }
@@ -69,17 +77,21 @@ div.contentWrap {
 }
 
 #details{
-  padding: 0px 2px;
   float:left;
-  width:40%;
+  width:60%;
   font-size:9pt;
   margin-bottom: 10px;
 }
 
 #centerpiece{
+<<<<<<< HEAD
   margin-left:auto;
   margin-right:auto;
   text-align:left;
+=======
+  width:900px;
+  margin:auto;
+>>>>>>> d4b4d5f72ad7c420c88c84dd7680cff5f099061f
 }
 #content{
   font-size:14px;

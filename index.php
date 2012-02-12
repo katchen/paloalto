@@ -68,7 +68,7 @@
   <!-- external page is given in the href attribute (as it should be) -->
   <div id="navbar">
   <div id="logodiv">  
-    <img src="images/header.png" id="logo"/>
+    <img src="images/header.png" id="logo" />
   </div>
   <div id="navbarlinks">
   <ul>
