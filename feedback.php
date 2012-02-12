@@ -14,6 +14,7 @@
             <input  id="fsubmit" type="image" src="images/button_submit.png"/>
         </div>
             <script>
+            //Posts form data to feedback_submit.php with variables fname, femail, and fcomments.
             $("#fsubmit").click(function(){
                 $.post("feedback_submit.php", {name: $("#fname").val(), email: $("#femail").val(), comments: $("#fcomments").val()}, function(){
                     $("#feedback_form").replaceWith('<div><h1>Thank You!</h1></div>')
