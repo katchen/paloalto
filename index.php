@@ -56,8 +56,20 @@
     var address = document.getElementById("address").value;
     geocoder.geocode( { 'address': address}, function(results, status) {
       if (status == google.maps.GeocoderStatus.OK) {
-        var num = JSON.stringify(results[0].address_components[0].short_name);
-        var street = JSON.stringify(results[0].address_components[1].short_name);
+        var num;
+        var street;
+        for(i = 0; i < results[0].address_components.length(); i++){
+          if(results[0].address_components[i].types[0] == "street_number"){
+          num = results[0].address_components[i].short_name;
+          break;
+          }
+        }
+        for(i = 0; i < results[0].address_components.length(); i++){
+           if(results[0].address_components[i].types[0] == "route"){
+             street = results[0].address_components[i].short_name;
+             break;
+            }
+        }
         var long = JSON.stringify(results[0].geometry.location.Pa);
         var lat = JSON.stringify(results[0].geometry.location.Qa);
         url = "http://maps.googleapis.com/maps/api/streetview?size=650x320&location=" + long +","+ lat
