@@ -1,3 +1,7 @@
+<?php
+    include('sqlitedb.php');
+?>
+
 <html>
 
 <head>
@@ -49,8 +53,12 @@
     var address = document.getElementById("address").value;
     geocoder.geocode( { 'address': address}, function(results, status) {
       if (status == google.maps.GeocoderStatus.OK) {
-        url = "http://maps.googleapis.com/maps/api/streetview?size=650x320&location=" + JSON.stringify(results[0].geometry.location.Pa)+","+
-        JSON.stringify(results[0].geometry.location.Qa)+ "&sensor=false&pitch=-45&fov=120";
+        var num = JSON.stringify(results[0].address_components[0].short_name);
+        var street = JSON.stringify(results[0].address_components[1].short_name);
+        var long = JSON.stringify(results[0].geometry.location.Pa);
+        var lat = JSON.stringify(results[0].geometry.location.Qa);
+        url = "http://maps.googleapis.com/maps/api/streetview?size=650x320&location=" + long +","+ lat
+        + "&sensor=false&pitch=-45&fov=120";
         $("#map").replaceWith('<img class="columns" id="map" src=' + url + " />");
         var address = JSON.stringify(results[0].formatted_address);
         var secondpartofaddress = JSON.stringify(results[0].address_components[3].short_name)+', '+JSON.stringify(results[0].address_components[5].short_name);
@@ -59,6 +67,7 @@
           secondpartofaddress = secondpartofaddress.replace('"','');
         }
         $("#streetaddr").replaceWith('<div id="streetaddr"><strong>'+ address.substring(1,address.indexOf(','))+'</strong></br>'+ secondpartofaddress+'</div>');
+        window.location.href = "index.php?num=" + num + "&street=" + street;
       } else {
         alert("Geocode was not successful for the following reason: " + status);
       }
@@ -97,7 +106,23 @@
       <div id="report_header">
           <div id="details">ROAD REPORT FOR: <br/></div>
           <div id="scorebox">
-            <div id="score">71 </div>
+            <div id="score">
+            <?php
+                if ($_GET['num'] == null){
+                    echo "71";
+                }
+                else{
+                  $street = $_GET['street'];
+                  $pos = strpos($street," ");
+                  $length = strlen($street);
+                  $final_street = substr($street,0,$length-$pos+2);
+                  $query ="select Score from PCI where LOCATION like '".str_replace('"',"",$_GET['num'])." ".str_replace('"',"",$final_street)."%';";
+                  $result = $db->query($query);
+                  $score = $result->fetch();
+                  echo $score[0];
+                }
+            ?>
+            </div>
             ROAD SCORE
           </div>
           <div id="streetaddr"><strong>250 Hamilton Avenue</strong></br>
