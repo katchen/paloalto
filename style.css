@@ -1,0 +1,75 @@
+#overlay {
+  display: none;
+  background-image:url(http://static.flowplayer.org/img/overlay/transparent.png);
+  color:#efefef;
+  height:450px;
+}
+
+/* container for external content. uses vertical scrollbar, if needed */
+div.contentWrap {
+  height:441px;
+  overflow-y:auto;
+}
+
+#navbarlinks{
+  list-style-type:none;
+  margin:0;
+  padding:0;
+  float:right;
+  padding-top:15px;
+  padding-right:20px;
+}
+
+#navbar{
+  padding-bottom:10px;
+  border-bottom:thin dotted #b3b3b3;
+  margin-bottom:45px;
+  margin-left:20px;
+  margin-right:20px;
+}
+
+#report{
+  
+}
+
+#address:focus{
+   border-color:#39b54a;
+   outline:none;
+}
+
+#address{
+  width:40%;
+  height:4%;
+  border-color:#cccccc;
+  font-size:12pt;
+  margin-right:17px;
+  margin-bottom:45px;
+}
+
+#submit{
+  vertical-align:-7px;
+  
+}
+
+#form{
+    text-align:center;
+}
+
+#logo{
+  height:40px;
+}
+
+body{
+  font-family:arial;
+}
+
+a{
+  margin-right:20px;
+  text-decoration:none;
+  color:#39b54a;
+  font-size:11pt;
+}
+
+li{
+  display:inline;
+}
