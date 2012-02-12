@@ -55,7 +55,7 @@
             position: results[0].geometry.location
         });*/
         location = results[0].geometry.location;
-        url = "http://maps.googleapis.com/maps/api/streetview?size=600x300&location=" + String(results[0].geometry.location) + "&sensor=false";
+        url = "http://maps.googleapis.com/maps/api/streetview?size=600x300&location=" + JSON.stringify(results[0].geometry.location.Pa) +"&sensor=false";
         url.replace("(", "");
         url.replace(")", "");
         alert(url);
