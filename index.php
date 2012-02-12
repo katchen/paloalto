@@ -111,15 +111,14 @@
     <div class="columns" id="gradingscale">
 	  <table>
 		<tr>
-			<th>
-				Grading Scale
+			<th>GRADING SCALE
 			</th>
 			<th>
 			</th>
 		</tr>
 		<tr>
 			<td>
-				<span>0-30</span>
+				<span>0 - 30</span>
 				<p>High priority to fix in the next two years.</p>
 			</td>
 			<td>
@@ -128,7 +127,7 @@
 		</tr>
 		<tr>
 			<td>
-				<span>31-60</span>
+				<span>31 - 60</span>
 				<p>Medium priority, will be fixed within 3-5 years.</p>
 			</td>
 			<td>
@@ -137,20 +136,21 @@
 		</tr>
 		<tr>
 			<td>
-				<span>61-100</span>
+				<span>61 - 100</span>
 				<p>Satisfactory to good condition</p>
 			</td>
 			<td>
 				<img src="images/quality_good.png">
 			</td>
 		</tr>
+	  </table>
     </div>
   </div>
+
   <div class="simple_overlay" id="overlay">
 
   <!-- the external content is loaded inside this tag -->
   <div class="contentWrap"></div>
-
   </div>
 
   <div id="footer">

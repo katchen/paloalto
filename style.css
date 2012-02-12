@@ -51,7 +51,7 @@ div.contentWrap {
   width:40%;
   height:30px;
   border-color:#cccccc;
-  font-size:12pt;
+  font-size:9pt;
   margin-right:17px;
   margin-bottom:45px;
 }
@@ -126,13 +126,44 @@ div.contentWrap {
   margin:auto;
 }
 
+#gradingscale img {
+  height:100px;
+}
+
+#gradingscale span {
+  color:#4D4D4D;
+  font-family:'Oswald', sans-serif;
+  font-size:30px;
+}
+
+#gradingscale p {
+  color:#4D4D4D;
+  font-family:Arial, sans-serif;
+  font-size:11px;
+}
+
+#gradingscale th {
+  font-size:9pt;
+  font-weight:normal;
+  text-align:left;
+
+}
+
+#gradingscale td {
+  padding-top:5px;
+  padding-bottom:5px;
+  border-top: 1px solid #cccccc;
+}
+
 #gradingscale {
   background-color:#F2F2F2;
-  padding-left:20px;
-  padding-right:20px;
+  padding-left:5px;
+  padding-right:5px;
   margin:auto;
-  width:30%;
+  width:32%;
   float:left;
+  margin-bottom:100px;
+
 }
 
 #submit{
@@ -149,8 +180,10 @@ div.contentWrap {
 }
 
 #footer{
+	z-index:-1;
 	background-image:url("images/bottom_city.png");
-	position:absolute;
+	float:bottom;
+	position:fixed;
 	bottom:0px;
 	left:0px;
 	width:100%;
