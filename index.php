@@ -17,6 +17,7 @@
   
   /* use a semi-transparent image for the overlay */
   #overlay {
+          display:none;
           background-image:url(http://static.flowplayer.org/img/overlay/transparent.png);
           color:#efefef;
           height:300px;
