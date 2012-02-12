@@ -1,8 +1,10 @@
 <html>
     <head>
+        <link rel="stylesheet" type="text/css" href="style.css"/>
     </head>
     <body>
         <form action="feedback.php" method="post">
+            <h1>Leave Feedback</h1>
             Name</br>
             <input type="text"/></br>
             Email</br>
