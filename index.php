@@ -32,6 +32,8 @@
   <script>
   var geocoder;
   var map;
+  var url;
+  var location;
   function initialize() {
     geocoder = new google.maps.Geocoder();
     var latlng = new google.maps.LatLng(37.44345,-122.164106);
@@ -47,11 +49,17 @@
     var address = document.getElementById("address").value;
     geocoder.geocode( { 'address': address}, function(results, status) {
       if (status == google.maps.GeocoderStatus.OK) {
-        map.setCenter(results[0].geometry.location);
+        /*map.setCenter(results[0].geometry.location);
         var marker = new google.maps.Marker({
             map: map,
             position: results[0].geometry.location
-        });
+        });*/
+        location = results[0].geometry.location;
+        url = "http://maps.googleapis.com/maps/api/streetview?size=600x300&location=" + String(results[0].geometry.location) + "&sensor=false";
+        url.replace("(", "");
+        url.replace(")", "");
+        alert(url);
+        $("#map").replaceWith('<img src=' + url + " />");
       } else {
         alert("Geocode was not successful for the following reason: " + status);
       }
@@ -66,7 +74,8 @@
   <a href="about.php" rel="#overlay" style="text-decoration:none"> About </a>
   <a href="admin.php" rel="#overlay" style="text-decoration:none"> Admin </a>
   <a href="feedback.php" rel="#overlay" style="text-decoration:none"> Feedback </a>
-
+  <div id="map">
+  </div> 
   <form id="form" action = "">
     Enter an address: <input id="address" type="text" name="address" /><br />
     <input id="submit" type="button" value="Locate" onclick="codeAddress()"/>
