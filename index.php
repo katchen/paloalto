@@ -56,11 +56,9 @@
   </ul>
   </div>
   
-  <div id="search">
-  <form id="form">
+  <div id="form">
     <input placeholder="Enter your address here" id="address" type="text" name="address"/>
-    <input id="submit" type="image" src="images/button_locate.png" onclick="codeAddress()"/>
-  </form> 
+    <input id="submit" type="image" onclick="codeAddress()" src="images/button_locate.png"/>
   </div>
 
   <div class="columns" id="report">
