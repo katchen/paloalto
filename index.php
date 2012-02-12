@@ -22,8 +22,9 @@
   /* use a semi-transparent image for the overlay */
   #overlay {
           display:none;
-          background-image:url(http://static.flowplayer.org/img/overlay/transparent.png);
-          color:#efefef;
+          background-image:url('images/transparent.png');
+          color:#4D4D4D;
+		  font-size:12px;
           height:300px;
           width:500px;
           padding:50px;
@@ -129,8 +130,7 @@
           Palo Alto, CA 94305
           </div>
       </div> 
-      <div id="content"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      <div id="content"> Stormy weather knocked down trees causing major obstruction on the pavement. Roads have moderate cracking.
       </div>
     </div>
  
@@ -185,10 +185,9 @@
 	  </div>
 	  <div id="upload">
 	    <form action="upload.php"id="photo_upload" method="post" enctype="multipart/form-data" >
-	    <p>Submit a photo for this location</p>
+	    <p>Submit a photo for this location:</p>
 	    <input id="uploader" type="file" name="file"/><br />
-	    <textarea id="comment" placeholder="Caption(optional)" rows="2">
-		</textarea>
+	    <textarea placeholder="Enter a caption (optional)" cols="70" rows="2"></textarea>
 	    <input type="submit"/>
 	    </form>
 	  </div>
