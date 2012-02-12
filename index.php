@@ -247,6 +247,19 @@
 <!-- make all links with the 'rel' attribute open overlays -->
 <script>
 
+$(document).ready(function(){
+	var score = $("#score").html();
+  if (parseInt(score) <= 30)
+    $("#score").css('color', 'red');
+  else if (parseInt(score) <= 60)
+    $("#score").css('color', '#4D4D4D');
+  else if (parseInt(score) <= 100)
+    $("#score").css('color', '#39B54A');
+  else 
+    $("#score").css('color', 'grey');
+
+});
+
 $(function() {
   // if the function argument is given to overlay,
   // it is assumed to be the onBeforeLoad event listener
