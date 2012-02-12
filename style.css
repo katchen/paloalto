@@ -11,6 +11,11 @@ div.contentWrap {
   overflow-y:auto;
 }
 
+h1{
+  color:#39b54a;
+  font-size:32pt;
+}
+
 #navbarlinks{
   list-style-type:none;
   margin:0;
@@ -28,9 +33,6 @@ div.contentWrap {
   margin-right:20px;
 }
 
-#report{
-  
-}
 
 #address:focus{
    border-color:#39b54a;
@@ -39,11 +41,54 @@ div.contentWrap {
 
 #address{
   width:40%;
-  height:4%;
+  height:30px;
   border-color:#cccccc;
   font-size:12pt;
   margin-right:17px;
   margin-bottom:45px;
+}
+
+#report{
+  margin-left:20px;
+  float:left;
+  margin-right:5px;
+  width:300px;
+  height:300px;
+}
+
+#report_header{
+  border-bottom:thin dotted #b3b3b3;
+  border-top:thin dotted #b3b3b3;
+  padding: 5px 0px;
+  float:left;
+  width:100%;
+}
+
+#details{
+  padding: 0px 2px;
+  float:left;
+  width:60%;
+}
+
+#content{
+  padding: 10px 5px;
+}
+
+
+
+#scorebox{
+  float:left;
+  width:25%;
+  height:25%;
+  padding: 10px;
+  margin: 5px;
+  border: thin solid #b3b3b3;
+  text-align:center;
+}
+
+#map{
+  background-color:green;
+  float:left;
 }
 
 #submit{
