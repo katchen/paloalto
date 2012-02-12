@@ -10,7 +10,7 @@
             Email</br>
             <input type="email"/></br>
             Comments</br>
-            <textarea rows="5" cols="20"></textarea></br>
+            <textarea rows="10" cols="30"></textarea></br>
             <input type="submit"/></br>
         </form>
     </body>
