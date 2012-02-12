@@ -89,7 +89,7 @@
 }
 
 #centerpiece{
-  width:900px;
+  width:1000px;
   margin:auto;
 }
 
@@ -103,10 +103,6 @@
     float:left;
     margin-top:55px;
 	margin-bottom:5px;
-}
-
-#gallery{
-  float:left;
 }
 
 #comment{
@@ -172,11 +168,36 @@
   background-color:#F2F2F2;
   padding-left:5px;
   padding-right:5px;
-  margin:auto;
   width:32%;
   float:left;
   margin-bottom:100px;
+  height:370px;
+}
 
+#album{
+  margin:auto;
+  float:left;  
+  width:60%;
+  margin-left:12px;
+}
+
+#leftarrow{
+  position:relative;
+  top:40%;
+  margin-left:10px;
+}
+
+#rightarrow{
+	position:relative;
+	top:40%;
+	left:595px;
+}
+
+#gallery{
+	margin-top:10px;
+	background-image:url("images/gallery_background.jpg");
+	height:80px;
+	width:640px;
 }
 
 #submit{

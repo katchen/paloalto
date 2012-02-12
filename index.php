@@ -91,29 +91,29 @@
     <input id="submit" type="image" onclick="codeAddress()" src="images/button_locate.png"/>
   </div>
   <div id="centerpiece">
-  <div class="columns" id="report">
-    <div id="report_header">
-      <div id="details">ROAD REPORT FOR: <br/></div>
-      <div id="scorebox">
-      <div id="score">71 </div>
-        ROAD SCORE
-      </div>
-      <div id="streetaddr"><strong>250 Hamilton Avenue</strong></br>
-      Palo Alto, CA 94305
-      </div>
-    </div> 
-    <div id="content"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+	<div id="topcenter">
+		
+    <div class="columns" id="report">
+      <div id="report_header">
+          <div id="details">ROAD REPORT FOR: <br/></div>
+          <div id="scorebox">
+            <div id="score">71 </div>
+            ROAD SCORE
+          </div>
+          <div id="streetaddr"><strong>250 Hamilton Avenue</strong></br>
+          Palo Alto, CA 94305
+          </div>
+      </div> 
+      <div id="content"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
     Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </div>
+    </div>
+ 
+    <div class="columns" id="map">
+      <img src="http://maps.googleapis.com/maps/api/streetview?size=650x320&location=37.444572,-122.16030599999999&sensor=false&pitch=-45&fov=120"/>
     </div>
   </div>
-  
-  <div class="columns" id="map">
-    <img src="http://maps.googleapis.com/maps/api/streetview?size=650x320&location=37.444572,-122.16030599999999&sensor=false&pitch=-45&fov=120"/>
-  </div>
-  </div>
-  
-
-  <div id="bottomcenterpiece">
+  <div id="bottomcenter">
     <div class="columns" id="gradingscale">
 	  <table>
 		<tr>
@@ -151,18 +151,27 @@
 		</tr>
 	  </table>
     </div>
+
+    <div id="album">
+	  <div id="gallery">
+		<img src="images/gallery_leftarrow.png" id="leftarrow">
+		<img src="images/gallery_rightarrow.png" id="rightarrow">
+		
+	  </div>
+	  <div id="upload">
+	    <form id="photo_upload" action="" >
+	    <p>Submit a photo for this location</p>
+	    <input id="uploader" type="file"/><br />
+	    <input id="comment" placeholder="Caption(optional)" type="textarea"/>
+	
+	    <input type="submit" value="Submit" class="uploadImages"/>
+	    </form>
+	  </div>
+	  </div>
+	</div>
   </div>
-  <div id="gallery">
-    
-  </div>
-  <div id="upload">
-    <form id="photo_upload" action="" >
-    <p>Submit a photo for this location</p>
-    <input id="uploader" type="file"/>
-    <input id="comment" placeholder="Caption(optional)" type="text"/>
-    <input type="image" src="images/button_submit.png"/>
-    </form>
-  </div>
+  
+
 
   <div class="simple_overlay" id="overlay">
 
