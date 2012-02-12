@@ -3,7 +3,6 @@
 <head>
   <!-- include the Tools -->
   <script src="http://cdn.jquerytools.org/1.2.6/full/jquery.tools.min.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
   <?php
   $key = 'AIzaSyA9ja49OotC-4jZzkDuBGVj-OQ5AtFGYbw';
   $sensor = "false";
@@ -11,24 +10,24 @@
     'src="http://maps.googleapis.com/maps/api/js?key='.$key.'&sensor='.
     $sensor.'"> </script>';
   ?>
-  <!-- standalone page styling (can be removed) -->
-  <!-- <link rel="stylesheet" type="text/css" href="http://static.flowplayer.org/tools/css/standalone.css"/>  -->
+  
+  
   <link rel="stylesheet" type="text/css" href="http://static.flowplayer.org/tools/css/overlay-apple.css"/>
   <style>
-  
   /* use a semi-transparent image for the overlay */
   #overlay {
     background-image:url(http://static.flowplayer.org/img/overlay/transparent.png);
     color:#efefef;
     height:450px;
   }
-  
+
   /* container for external content. uses vertical scrollbar, if needed */
   div.contentWrap {
     height:441px;
     overflow-y:auto;
   }
   </style>
+  
   <script>
   var geocoder;
   var map;
@@ -54,11 +53,9 @@
             map: map,
             position: results[0].geometry.location
         });*/
-        location = results[0].geometry.location;
-        url = "http://maps.googleapis.com/maps/api/streetview?size=600x300&location=" + JSON.stringify(results[0].geometry.location.Pa) +"&sensor=false";
-        url.replace("(", "");
-        url.replace(")", "");
-        alert(url);
+
+        url = "http://maps.googleapis.com/maps/api/streetview?size=600x300&location=" + JSON.stringify(results[0].geometry.location.Pa)+","+
+        JSON.stringify(results[0].geometry.location.Qa)+ "&sensor=false";
         $("#map").replaceWith('<img src=' + url + " />");
       } else {
         alert("Geocode was not successful for the following reason: " + status);
@@ -74,6 +71,7 @@
   <a href="about.php" rel="#overlay" style="text-decoration:none"> About </a>
   <a href="admin.php" rel="#overlay" style="text-decoration:none"> Admin </a>
   <a href="feedback.php" rel="#overlay" style="text-decoration:none"> Feedback </a>
+
   <div id="map">
   </div> 
   <form id="form" action = "">
@@ -82,7 +80,7 @@
   </form> 
   <div id="map_canvas" style="width:100%; height:100%"></div>
 
-<!-- overlayed element -->
+</body>
 <div class="simple_overlay" id="overlay">
 
   <!-- the external content is loaded inside this tag -->
@@ -94,12 +92,22 @@
 <script>
 
 
-
+$(function() {
   // if the function argument is given to overlay,
   // it is assumed to be the onBeforeLoad event listener
-  $(document).ready(function(){
-  //$("a[rel]").overlay();
-  });
+  $("a[rel]").overlay({
+    mask: 'white',
+    effect: 'apple',
+
+    onBeforeLoad: function() {
+      // grab wrapper element inside content
+      var wrap = this.getOverlay().find(".contentWrap");
+      // load the page specified in the trigger
+      wrap.load(this.getTrigger().attr("href"));
+    }
+
+    });
+});
 </script>
 
 </html>
