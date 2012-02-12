@@ -17,6 +17,7 @@
   
   /* use a semi-transparent image for the overlay */
   #overlay {
+          display:none;
           background-image:url(http://static.flowplayer.org/img/overlay/transparent.png);
           color:#efefef;
           height:300px;
@@ -26,8 +27,7 @@
   
   /* container for external content. uses vertical scrollbar, if needed */
   div.contentWrap {
-          height:300px;
-            
+          height:441px;
           overflow-y:auto;
   }
   </style>
@@ -52,6 +52,13 @@
         url = "http://maps.googleapis.com/maps/api/streetview?size=650x320&location=" + JSON.stringify(results[0].geometry.location.Pa)+","+
         JSON.stringify(results[0].geometry.location.Qa)+ "&sensor=false&pitch=-45&fov=120";
         $("#map").replaceWith('<img class="columns" id="map" src=' + url + " />");
+        var address = JSON.stringify(results[0].formatted_address);
+        var secondpartofaddress = JSON.stringify(results[0].address_components[3].short_name)+', '+JSON.stringify(results[0].address_components[5].short_name);
+        var i = 0;
+        for (;i<4;i++){
+          secondpartofaddress = secondpartofaddress.replace('"','');
+        }
+        $("#streetaddr").replaceWith('<div id="streetaddr"><strong>'+ address.substring(1,address.indexOf(','))+'</strong></br>'+ secondpartofaddress+'</div>');
       } else {
         alert("Geocode was not successful for the following reason: " + status);
       }
@@ -83,7 +90,6 @@
     <input placeholder="Enter your address here (e.g. 545 Forest Ave, Palo Alto, CA)" id="address" type="text" name="address"/>
     <input id="submit" type="image" onclick="codeAddress()" src="images/button_locate.png"/>
   </div>
-
   <div id="centerpiece">
   <div class="columns" id="report">
     <div id="report_header">
@@ -92,7 +98,7 @@
       <div id="score">71 </div>
         ROAD SCORE
       </div>
-      <div id="streetaddr"><strong>545 Forest Avenue</strong></br>
+      <div id="streetaddr"><strong>250 Hamilton Avenue</strong></br>
       Palo Alto, CA 94305
       </div>
     </div> 

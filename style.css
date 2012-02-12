@@ -1,16 +1,3 @@
-#overlay {
-  display: none;
-  background-image:url(http://static.flowplayer.org/img/overlay/transparent.png);
-  color:#efefef;
-  height:450px;
-}
-
-/* container for external content. uses vertical scrollbar, if needed */
-div.contentWrap {
-  height:441px;
-  overflow-y:auto;
-}
-
 #score{
   font-family: Oswald;
   color:#39b54a;
