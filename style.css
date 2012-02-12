@@ -30,8 +30,13 @@
 
 
 #address:focus{
-   border-color:#39b54a;
-   outline:none;
+  color:#000;
+  outline:none;
+  border:#39b54a 1px solid;
+  font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  box-shadow: 0 0 5px rgba(57, 184, 74, 1);
+  -webkit-box-shadow: 0 0 5px rgba(57, 184, 74, 1);
+  -moz-box-shadow: 0 0 5px rgba(57, 184, 74, 1);
 }
 
 #address{
@@ -41,6 +46,19 @@
   font-size:9pt;
   margin-right:17px;
   margin-bottom:45px;
+  
+  color:#666;
+  -moz-border-radius: 0px; -webkit-border-radius: 0px;
+  margin:5px 0px 10px 0px;
+  padding:10px;
+  border:#999 1px solid;
+  font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  transition: all 0.25s ease-in-out;
+  -webkit-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  box-shadow: 0 0 5px rgba(81, 203, 238, 0);
+  -webkit-box-shadow: 0 0 5px rgba(81, 203, 238, 0);
+  -moz-box-shadow: 0 0 5px rgba(81, 203, 238, 0);
 }
 
 #report{
@@ -154,7 +172,7 @@
 }
 
 #submit{
-  vertical-align:-7px;
+  vertical-align:-10px;
   
 }
 
