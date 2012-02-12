@@ -29,23 +29,47 @@
     overflow-y:auto;
   }
   </style>
+  <script>
+  var geocoder;
+  var map;
+  function initialize() {
+    geocoder = new google.maps.Geocoder();
+    var latlng = new google.maps.LatLng(37.44345,-122.164106);
+    var myOptions = {
+      zoom: 8,
+      center: latlng,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    }
+    map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+  }
 
+  function codeAddress() {
+    var address = document.getElementById("address").value;
+    geocoder.geocode( { 'address': address}, function(results, status) {
+      if (status == google.maps.GeocoderStatus.OK) {
+        map.setCenter(results[0].geometry.location);
+        var marker = new google.maps.Marker({
+            map: map,
+            position: results[0].geometry.location
+        });
+      } else {
+        alert("Geocode was not successful for the following reason: " + status);
+      }
+    });
+  }
+  </script>
 </head>
-<body>
 
-
+<body onload="initialize()">
 
     <!-- external page is given in the href attribute (as it should be) -->
-    <a href="about.php" rel="#overlay" style="text-decoration:none"> About </a>
-    <a href="admin.php" rel="#overlay" style="text-decoration:none"> Admin </a>
-    <a href="feedback.php" rel="#overlay" style="text-decoration:none"> Feedback </a>
+  <a href="about.php" rel="#overlay" style="text-decoration:none"> About </a>
+  <a href="admin.php" rel="#overlay" style="text-decoration:none"> Admin </a>
+  <a href="feedback.php" rel="#overlay" style="text-decoration:none"> Feedback </a>
 
-  <div id="infobox">
-    Text here  
-  </div>
   <form id="form" action = "">
     Enter an address: <input id="address" type="text" name="address" /><br />
-    <input id="submit" type="button" value="Submit" />
+    <input id="submit" type="button" value="Locate" onclick="codeAddress()"/>
   </form> 
   <div id="map_canvas" style="width:100%; height:100%"></div>
 
@@ -68,45 +92,5 @@
   //$("a[rel]").overlay();
   });
 </script>
-<script type="text/javascript">
-  function showAddress(address) {
-    var latlng = null;
-    var geocoder = new GClientGeocoder();
-    geocoder.getLatLng(
-      address,
-      function(point) {
-        if (!point) {
-          alert(address + " not found");
-        } else {
-          latlng = point;
-          //map.setCenter(point, 13);
-          //var marker = new GMarker(point);
-          //map.addOverlay(marker);
 
-          // As this is user-generated content, we display it as
-          // text rather than HTML to reduce XSS vulnerabilities.
-          //marker.openInfoWindow(document.createTextNode(address));
-        }
-      }
-    );
-    return latlng;
-  }
-  $('#form').submit(function() {
-    var address = $("#address").val();
-    $("#infobox").html(address);
-    var latlng_obj = showAddress( address);
-    if(!latlng_obj){
-      return;
-    }
-    var options = {
-      //center: new google.maps.LatLng(-34.397, 150.644),
-      center: latlng_obj,
-      zoom: 14, // zoom way in for streetview
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
-    var map = 
-      new google.maps.Map(document.getElementById("map_canvas"), options);
-  });
-
-</script>
 </html>
