@@ -1,9 +1,8 @@
 <html>
     <head>
-        
     </head>
     <body>
-        <form>
+        <form action="feedback.php" method="post">
             Name</br>
             <input type="text"/></br>
             Email</br>
