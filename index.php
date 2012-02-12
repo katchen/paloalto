@@ -15,9 +15,8 @@
   
   <script>
   var geocoder;
-  var map;
   var url;
-  var location;
+
   function initialize() {
     geocoder = new google.maps.Geocoder();
     var latlng = new google.maps.LatLng(37.44345,-122.164106);
@@ -34,7 +33,7 @@
       if (status == google.maps.GeocoderStatus.OK) {
         url = "http://maps.googleapis.com/maps/api/streetview?size=600x300&location=" + JSON.stringify(results[0].geometry.location.Pa)+","+
         JSON.stringify(results[0].geometry.location.Qa)+ "&sensor=false&pitch=-45&fov=120";
-        $("#map").replaceWith('<img src=' + url + " />");
+        $("#map").replaceWith('<img id="map" src=' + url + " />");
       } else {
         alert("Geocode was not successful for the following reason: " + status);
       }

@@ -31,12 +31,19 @@ div.contentWrap {
 #report{
   
 }
+
+#address:focus{
+   border-color:#39b54a;
+   outline:none;
+}
+
 #address{
   width:40%;
   height:4%;
   border-color:#cccccc;
   font-size:12pt;
   margin-right:17px;
+  margin-bottom:45px;
 }
 
 #submit{
