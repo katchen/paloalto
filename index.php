@@ -156,9 +156,9 @@
     
   </div>
   <div id="upload">
-    <form id="photo_upload" action="" >
+    <form action="upload.php"id="photo_upload" method="post" enctype="multipart/form-data" >
     <p>Submit a photo for this location</p>
-    <input id="uploader" type="file"/>
+    <input id="uploader" type="file" name="file"/>
     <input id="comment" placeholder="Caption(optional)" type="text"/>
     <input type="image" src="images/button_submit.png"/>
     </form>
