@@ -1,28 +1,33 @@
 <html>
 
 <head>
-	<!-- include the Tools -->
-	<script src="http://cdn.jquerytools.org/1.2.6/full/jquery.tools.min.js"></script>
-        <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&sensor=SET_TO_TRUE_OR_FALSE"> </script>
+  <!-- include the Tools -->
+  <script src="http://cdn.jquerytools.org/1.2.6/full/jquery.tools.min.js"></script>
+  <?php
+  $key = 'AIzaSyA9ja49OotC-4jZzkDuBGVj-OQ5AtFGYbw';
+  $sensor = true;
+  echo '<script type="text/javascript" '.
+    'src="http://maps.googleapis.com/maps/api/js?key='.$key.'&sensor='.
+    $sensor.'"> </script>';
 
-	<!-- standalone page styling (can be removed) -->
-	<!-- <link rel="stylesheet" type="text/css" href="http://static.flowplayer.org/tools/css/standalone.css"/>	-->
-	<link rel="stylesheet" type="text/css" href="http://static.flowplayer.org/tools/css/overlay-apple.css"/>
-	<style>
-	
-	/* use a semi-transparent image for the overlay */
-	#overlay {
-		background-image:url(http://static.flowplayer.org/img/overlay/transparent.png);
-		color:#efefef;
-		height:450px;
-	}
-	
-	/* container for external content. uses vertical scrollbar, if needed */
-	div.contentWrap {
-		height:441px;
-		overflow-y:auto;
-	}
-	</style>
+  <!-- standalone page styling (can be removed) -->
+  <!-- <link rel="stylesheet" type="text/css" href="http://static.flowplayer.org/tools/css/standalone.css"/>  -->
+  <link rel="stylesheet" type="text/css" href="http://static.flowplayer.org/tools/css/overlay-apple.css"/>
+  <style>
+  
+  /* use a semi-transparent image for the overlay */
+  #overlay {
+    background-image:url(http://static.flowplayer.org/img/overlay/transparent.png);
+    color:#efefef;
+    height:450px;
+  }
+  
+  /* container for external content. uses vertical scrollbar, if needed */
+  div.contentWrap {
+    height:441px;
+    overflow-y:auto;
+  }
+  </style>
         <script type="text/javascript">
   function showAddress(address) {
     var latlng = null;
@@ -82,8 +87,8 @@
 <!-- overlayed element -->
 <div class="apple_overlay" id="overlay">
 
-	<!-- the external content is loaded inside this tag -->
-	<div class="contentWrap"></div>
+  <!-- the external content is loaded inside this tag -->
+  <div class="contentWrap"></div>
 
 </div>
 
@@ -92,23 +97,23 @@
 
 $(function() {
 
-	// if the function argument is given to overlay,
-	// it is assumed to be the onBeforeLoad event listener
-	$("a[rel]").overlay({
+  // if the function argument is given to overlay,
+  // it is assumed to be the onBeforeLoad event listener
+  $("a[rel]").overlay({
 
-		mask: 'white',
-		effect: 'apple',
+    mask: 'white',
+    effect: 'apple',
 
-		onBeforeLoad: function() {
+    onBeforeLoad: function() {
 
-			// grab wrapper element inside content
-			var wrap = this.getOverlay().find(".contentWrap");
+      // grab wrapper element inside content
+      var wrap = this.getOverlay().find(".contentWrap");
 
-			// load the page specified in the trigger
-			wrap.load(this.getTrigger().attr("href"));
-		}
+      // load the page specified in the trigger
+      wrap.load(this.getTrigger().attr("href"));
+    }
 
-	});
+  });
 });
 </script>
 </html>
