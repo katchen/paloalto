@@ -152,6 +152,17 @@
 	  </table>
     </div>
   </div>
+  <div id="gallery">
+    
+  </div>
+  <div id="upload">
+    <form id="photo_upload" action="" >
+    <p>Submit a photo for this location</p>
+    <input id="uploader" type="file"/>
+    <input id="comment" placeholder="Caption(optional)" type="text"/>
+    <input type="image" src="images/button_submit.png"/>
+    </form>
+  </div>
 
   <div class="simple_overlay" id="overlay">
 
