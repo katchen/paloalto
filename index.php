@@ -58,13 +58,13 @@
       if (status == google.maps.GeocoderStatus.OK) {
         var num;
         var street;
-        for(i = 0; i < results[0].address_components.length(); i++){
+        for(i = 0; i < results[0].address_components.length; i++){
           if(results[0].address_components[i].types[0] == "street_number"){
           num = results[0].address_components[i].short_name;
           break;
           }
         }
-        for(i = 0; i < results[0].address_components.length(); i++){
+        for(i = 0; i < results[0].address_components.length; i++){
            if(results[0].address_components[i].types[0] == "route"){
              street = results[0].address_components[i].short_name;
              break;
