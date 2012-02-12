@@ -109,6 +109,20 @@
   margin-left:20px;
 }
 
+#bottomcenterpiece{
+  width:900px;
+  margin:auto;
+}
+
+#gradingscale {
+  background-color:#F2F2F2;
+  padding-left:20px;
+  padding-right:20px;
+  margin:auto;
+  width:30%;
+  float:left;
+}
+
 #submit{
   vertical-align:-7px;
   
