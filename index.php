@@ -47,16 +47,20 @@
 
   <!-- external page is given in the href attribute (as it should be) -->
   <div id="navbar">
-  <img src="images/header.gif" id="logo"/>
-  <ul id="navbarlinks">
+  <div id="logodiv">  
+    <img src="images/header.png" id="logo"/>
+  </div>
+  <div id="navbarlinks">
+  <ul>
   <li> <a href="about.php" rel="#overlay"> About </a> </li>
   <li> <a href="feedback.php" rel="#overlay"> Feedback </a> </li>
   <li> <a href="admin.php"> Admin </a> </li>
   </ul>
   </div>
+  </div>
   
   <div id="form">
-    <input placeholder="Enter your address here" id="address" type="text" name="address"/>
+    <input placeholder="Enter your address here (e.g. 545 Forest Ave, Palo Alto, CA)" id="address" type="text" name="address"/>
     <input id="submit" type="image" onclick="codeAddress()" src="images/button_locate.png"/>
   </div>
 
@@ -65,7 +69,7 @@
     <div id="report_header">
       <div id="details">ROAD REPORT FOR: <br/></div>
       <div id="scorebox">
-        <div id="score">71 </div>
+      <div id="score">71 </div>
         ROAD SCORE
       </div>
       <div id="streetaddr"><strong>545 Forest Avenue</strong></br>
@@ -91,6 +95,9 @@
   <div class="contentWrap"></div>
 
   </div>
+
+  <div id="footer">
+	</div>
 
 <!-- make all links with the 'rel' attribute open overlays -->
 <script>
