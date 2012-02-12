@@ -19,14 +19,14 @@
   #overlay {
           background-image:url(http://static.flowplayer.org/img/overlay/transparent.png);
           color:#efefef;
-          height:600px;
-          width:600px;
+          height:300px;
+          width:500px;
           padding:50px;
   }
   
   /* container for external content. uses vertical scrollbar, if needed */
   div.contentWrap {
-          height:441px;
+          height:300px;
             
           overflow-y:auto;
   }
