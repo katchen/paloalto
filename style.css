@@ -87,6 +87,14 @@
 	margin-bottom:5px;
 }
 
+#gallery{
+  float:left;
+}
+
+#comment{
+  float:left;
+}
+
 #scorebox{
   float:right;
   width:90px;
@@ -169,7 +177,6 @@
 #footer{
 	z-index:-1;
 	background-image:url("images/bottom_city.png");
-	float:bottom;
 	position:fixed;
 	bottom:0px;
 	left:0px;
