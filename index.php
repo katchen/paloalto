@@ -40,15 +40,17 @@
     <a href="admin.php" rel="#overlay" style="text-decoration:none"> Admin </a>
     <a href="feedback.php" rel="#overlay" style="text-decoration:none"> Feedback </a>
 
-
-  <form>
+  <div id="infobox">
+    Text here  
+  </div>
+  <form id="form" action = "">
     Enter an address: <input id="address" type="text" name="address" /><br />
-    <input id="submit" type="button" value="Submit" onclick="alert("Hello");" />
+    <input id="submit" type="button" value="Submit" />
   </form> 
   <div id="map_canvas" style="width:100%; height:100%"></div>
 
 <!-- overlayed element -->
-<div class="apple_overlay" id="overlay">
+<div class="simple_overlay" id="overlay">
 
   <!-- the external content is loaded inside this tag -->
   <div class="contentWrap"></div>
@@ -58,28 +60,15 @@
 <!-- make all links with the 'rel' attribute open overlays -->
 <script>
 
-$(function() {
+
 
   // if the function argument is given to overlay,
   // it is assumed to be the onBeforeLoad event listener
-  $("a[rel]").overlay({
-
-    mask: 'white',
-    effect: 'apple',
-
-    onBeforeLoad: function() {
-
-      // grab wrapper element inside content
-      var wrap = this.getOverlay().find(".contentWrap");
-
-      // load the page specified in the trigger
-      wrap.load(this.getTrigger().attr("href"));
-    }
-
+  $(document).ready(function(){
+  //$("a[rel]").overlay();
   });
-});
 </script>
-        <script type="text/javascript">
+<script type="text/javascript">
   function showAddress(address) {
     var latlng = null;
     var geocoder = new GClientGeocoder();
@@ -102,8 +91,9 @@ $(function() {
     );
     return latlng;
   }
-  $('#submit').bind('click', function() {
-    var address = $("#address").text();
+  $('#form').submit(function() {
+    var address = $("#address").val();
+    $("#infobox").html(address);
     var latlng_obj = showAddress( address);
     if(!latlng_obj){
       return;
@@ -117,8 +107,6 @@ $(function() {
     var map = 
       new google.maps.Map(document.getElementById("map_canvas"), options);
   });
-  function getMap() {
- 
-  }
+
 </script>
 </html>
