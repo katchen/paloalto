@@ -12,6 +12,7 @@
   ?>
   <link rel="stylesheet" type="text/css" href="http://static.flowplayer.org/tools/css/overlay-apple.css"/>
   <link rel="stylesheet" type="text/css" href="style.css"/>
+  <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
   <script>
   var geocoder;
   var url;
@@ -30,7 +31,7 @@
     var address = document.getElementById("address").value;
     geocoder.geocode( { 'address': address}, function(results, status) {
       if (status == google.maps.GeocoderStatus.OK) {
-        url = "http://maps.googleapis.com/maps/api/streetview?size=600x300&location=" + JSON.stringify(results[0].geometry.location.Pa)+","+
+        url = "http://maps.googleapis.com/maps/api/streetview?size=650x320&location=" + JSON.stringify(results[0].geometry.location.Pa)+","+
         JSON.stringify(results[0].geometry.location.Qa)+ "&sensor=false&pitch=-45&fov=120";
         $("#map").replaceWith('<img class="columns" id="map" src=' + url + " />");
       } else {
@@ -59,22 +60,26 @@
     <input id="submit" type="image" onclick="codeAddress()" src="images/button_locate.png"/>
   </div>
 
+  <div id="centerpiece">
   <div class="columns" id="report">
     <div id="report_header">
-      <div id="details">Road Report For:</br></br></br></br>
-      <strong>545 Forest Avenue</strong></br>
+      <div id="details">ROAD REPORT FOR: <br/></div>
+      <div id="scorebox">
+        <div id="score">71 </div>
+        ROAD SCORE
+      </div>
+      <div id="streetaddr"><strong>545 Forest Avenue</strong></br>
       Palo Alto, CA 94305
       </div>
-      <div id="scorebox">
-        Score
-        <h1>71</h1></br>
-      </div>
     </div> 
-    <div id="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    <div id="content"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
     </div>
   </div>
   
   <div class="columns" id="map">
+    <img src="http://maps.googleapis.com/maps/api/streetview?size=650x320&location=37.444572,-122.16030599999999&sensor=false&pitch=-45&fov=120"/>
+  </div>
   </div>
   
   <div class="columns" id="scale">

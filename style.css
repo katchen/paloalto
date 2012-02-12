@@ -11,9 +11,10 @@ div.contentWrap {
   overflow-y:auto;
 }
 
-h1{
+#score{
+  font-family: Oswald;
   color:#39b54a;
-  font-size:32pt;
+  font-size:40pt;
 }
 
 #navbarlinks{
@@ -52,14 +53,17 @@ h1{
   margin-left:20px;
   float:left;
   margin-right:5px;
-  width:300px;
+  width:350px;
   height:300px;
 }
 
 #report_header{
   border-bottom:thin dotted #b3b3b3;
   border-top:thin dotted #b3b3b3;
-  padding: 5px 0px;
+  margin-bottom: 10px;
+  padding-left:5px;
+  padding-right:5px;
+  padding-top: 5px;
   float:left;
   width:100%;
 }
@@ -67,28 +71,46 @@ h1{
 #details{
   padding: 0px 2px;
   float:left;
-  width:60%;
+  width:40%;
+  font-size:9pt;
+  margin-bottom: 10px;
 }
 
+#centerpiece{
+  margin-left:auto;
+  margin-right:auto;
+  text-align:left;
+}
 #content{
-  padding: 10px 5px;
+  font-size:14px;
+  padding-left:10px;
 }
 
+#streetaddr{
+    font-size:12pt;
+    float:left;
+    margin-top:55px;
+}
 
 
 #scorebox{
-  float:left;
-  width:25%;
-  height:25%;
-  padding: 10px;
-  margin: 5px;
+  float:right;
+  width:90px;
+  height:90px;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   border: thin solid #b3b3b3;
   text-align:center;
+  font-size:9pt;
+  color:#b3b3b3;
 }
 
 #map{
   background-color:green;
   float:left;
+  margin-left:20px;
 }
 
 #submit{
