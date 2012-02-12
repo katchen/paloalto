@@ -30,6 +30,7 @@
 
 
 #tagline{
+	display:none;
 	font-size:40px;
 	font-weight:bold;
 	text-align:center;
@@ -96,7 +97,6 @@
 }
 
 #centerpiece{
-  visibility:hidden;
   width:1000px;
   margin:auto;
   margin-top:20px;

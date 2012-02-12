@@ -245,13 +245,6 @@ var first = true;
 
 $("#address").keydown(function(event){
     if(event.which == 13){
-	    if(first){
-			document.getElementById("centerpiece").style.visibility = "visible";
-			$('#tagline').hide();
-			first = false;
-
-		}
-	
         codeAddress();
     }
   });
