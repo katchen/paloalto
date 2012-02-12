@@ -8,6 +8,11 @@
   float:left;
 }
 
+#logodiv img {
+  padding-top:10px;
+  height:30px;
+}
+
 #navbarlinks{
   list-style-type:none;
   margin:0;
@@ -19,7 +24,7 @@
 #navbar{
   padding-bottom:50px;
   border-bottom:thin dotted #b3b3b3;
-  margin-bottom:45px;
+  margin-bottom:35px;
   margin-left:20px;
   margin-right:20px;
 }
@@ -60,15 +65,14 @@
 }
 
 #details{
-  padding: 0px 2px;
   float:left;
-  width:40%;
+  width:60%;
   font-size:9pt;
   margin-bottom: 10px;
 }
 
 #centerpiece{
-  width:1000px;
+  width:900px;
   margin:auto;
 }
 #content{

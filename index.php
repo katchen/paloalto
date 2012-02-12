@@ -19,15 +19,14 @@
   #overlay {
           background-image:url(http://static.flowplayer.org/img/overlay/transparent.png);
           color:#efefef;
-          height:600px;
-          width:600px;
+          height:300px;
+          width:500px;
           padding:50px;
   }
   
   /* container for external content. uses vertical scrollbar, if needed */
   div.contentWrap {
           height:441px;
-    
           overflow-y:auto;
   }
   </style>
@@ -68,7 +67,7 @@
   <!-- external page is given in the href attribute (as it should be) -->
   <div id="navbar">
   <div id="logodiv">  
-    <img src="images/header.png" id="logo"/>
+    <img src="images/header.png" id="logo" />
   </div>
   <div id="navbarlinks">
   <ul>
