@@ -27,7 +27,7 @@
   /* container for external content. uses vertical scrollbar, if needed */
   div.contentWrap {
           height:441px;
-            
+    
           overflow-y:auto;
   }
   </style>
@@ -52,6 +52,8 @@
         url = "http://maps.googleapis.com/maps/api/streetview?size=650x320&location=" + JSON.stringify(results[0].geometry.location.Pa)+","+
         JSON.stringify(results[0].geometry.location.Qa)+ "&sensor=false&pitch=-45&fov=120";
         $("#map").replaceWith('<img class="columns" id="map" src=' + url + " />");
+        var address = JSON.stringify(results[0].formatted_address);
+        $("#streetaddr").replaceWith('<div id="streetaddr"><strong>'+ address.substring(0,address.indexOf(','))+'</strong></br>'+address.substring(address.indexOf(','))+'</div>');
       } else {
         alert("Geocode was not successful for the following reason: " + status);
       }
@@ -89,7 +91,7 @@
       <div id="score">71 </div>
         ROAD SCORE
       </div>
-      <div id="streetaddr"><strong>545 Forest Avenue</strong></br>
+      <div id="streetaddr"><strong>250 Hamilton Avenue</strong></br>
       Palo Alto, CA 94305
       </div>
     </div> 
