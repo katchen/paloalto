@@ -70,9 +70,8 @@
              break;
             }
         }
-        var long = JSON.stringify(results[0].geometry.location.Pa);
-        var lat = JSON.stringify(results[0].geometry.location.Qa);
-        url = "http://maps.googleapis.com/maps/api/streetview?size=650x320&location=" + long +","+ lat
+        var location = results[0].geometry.location;
+        url = "http://maps.googleapis.com/maps/api/streetview?size=650x320&location=" + location
         + "&sensor=false&pitch=-45&fov=120";
         $("#map").replaceWith('<img class="columns" id="map" src=' + url + " />");
         var address = JSON.stringify(results[0].formatted_address);
@@ -83,7 +82,7 @@
           secondpartofaddress = secondpartofaddress.replace('"','');
         }
         $("#streetaddr").replaceWith('<div id="streetaddr"><strong>'+'</strong></br>'+ secondpartofaddress+'</div>');
-        window.location.href = "index.php?num=" + num + "&street=" + street+"&long=" + long +"&lat=" + lat +"&firstpart=" + firstpartofaddress+ "&secondpart="+ secondpartofaddress;
+        window.location.href = "index.php?num=" + num + "&street=" + street+"&location=" + location +"&firstpart=" + firstpartofaddress+ "&secondpart="+ secondpartofaddress;
       } else {
         alert("Geocode was not successful for the following reason: " + status);
       }
@@ -166,7 +165,7 @@
       <div id="content">
         <?php
             $final_street = $final_street."%'";
-            if ($_GET['lat'] != null){
+            if ($_GET['location'] != null){
               $query = "select * from TC_PVMT where Street like '".$final_street.";";
               $result = $db->query($query);
               $results = $result->fetch();
@@ -189,11 +188,11 @@
  
     <div class="columns" id="map">
       <?php
-        if ($_GET['lat'] == null){
+        if ($_GET['location'] == null){
           echo '<img src="http://maps.googleapis.com/maps/api/streetview?size=650x320&location=37.444572,-122.16030599999999&sensor=false&pitch=-45&fov=120"/>';
         }
         else{
-          echo '<img src="http://maps.googleapis.com/maps/api/streetview?size=650x320&location='.$_GET['long'].','.$_GET['lat'].'&sensor=false&pitch=-45&fov=120"/>';
+          echo '<img src="http://maps.googleapis.com/maps/api/streetview?size=650x320&location='.$_GET['location'].'&sensor=false&pitch=-45&fov=120"/>';
         }
       ?>
     </div>
